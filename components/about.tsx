@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { AnimatedCounter } from "./animated-counter"
+import { siteConfig } from "@/lib/site.config"
 
 export function About() {
   const containerVariants = {
