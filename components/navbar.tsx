@@ -42,10 +42,13 @@ export function Navbar() {
             className="flex items-center gap-2 cursor-pointer group"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground group-hover:glow">
-              FT
-            </div>
-            <span className="hidden sm:inline font-bold text-primary">Final Touch</span>
+            <Image
+              src="https://cdn.builder.io/api/v1/image/assets%2Fbfad6aad64dd4c2cb2466ab07229646d%2F3a30a4ed25ab4402bcd2d6cbfb8dcdca?format=webp&width=400"
+              alt="Final Touch Logo"
+              width={48}
+              height={48}
+              className="object-contain"
+            />
           </motion.div>
 
           {/* Desktop Menu */}
