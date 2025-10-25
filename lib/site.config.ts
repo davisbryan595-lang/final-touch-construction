@@ -40,7 +40,7 @@ export const siteConfig = {
       name: "Hardscaping",
       description: "Patios, walkways, retaining walls, and other hardscape features",
       icon: "🏗️",
-      image: "https://images.pexels.com/photos/416994/pexels-photo-416994.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
+      image: "https://images.pexels.com/photos/3707440/pexels-photo-3707440.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
     },
     {
       id: "tree-care",
@@ -53,7 +53,7 @@ export const siteConfig = {
       id: "seasonal-cleanup",
       name: "Seasonal Cleanups",
       description: "Spring and fall cleanups to keep your property looking pristine",
-      icon: "���",
+      icon: "🍂",
       image: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
     },
     {
@@ -61,7 +61,7 @@ export const siteConfig = {
       name: "Irrigation Setup",
       description: "Professional irrigation system installation and maintenance",
       icon: "💧",
-      image: "https://images.pexels.com/photos/3998412/pexels-photo-3998412.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
+      image: "https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
     },
     {
       id: "mulching",
@@ -75,7 +75,7 @@ export const siteConfig = {
       name: "Snow & Ice Services",
       description: "Winter snow removal and ice management services",
       icon: "❄️",
-      image: "https://images.pexels.com/photos/416994/pexels-photo-416994.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
+      image: "https://images.pexels.com/photos/1395957/pexels-photo-1395957.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop",
     },
   ],
   stats: {
