@@ -32,16 +32,20 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1920&h=1080&fit=crop"
-          alt="Professional landscaping"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://cdn.pixabay.com/vimeo/305151395/landscaping-12254.mp4?height=1080"
+            type="video/mp4"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
