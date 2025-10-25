@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { siteConfig } from "@/lib/site.config"
+import Image from "next/image"
 
 export function Services() {
   const containerVariants = {
