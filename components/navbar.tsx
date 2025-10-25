@@ -54,7 +54,7 @@ export function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {["about", "services", "projects", "testimonials"].map((item) => (
+            {["about", "services", "projects", "pricing", "testimonials"].map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ color: "#00ff41" }}
@@ -112,7 +112,7 @@ export function Navbar() {
           className="md:hidden overflow-hidden"
         >
           <div className="flex flex-col gap-4 pb-4">
-            {["about", "services", "projects", "testimonials"].map((item) => (
+            {["about", "services", "projects", "pricing", "testimonials"].map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ x: 10 }}
