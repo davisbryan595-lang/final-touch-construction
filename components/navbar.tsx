@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { siteConfig } from "@/lib/site.config"
+import Image from "next/image"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
