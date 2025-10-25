@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
