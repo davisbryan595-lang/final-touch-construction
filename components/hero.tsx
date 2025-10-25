@@ -62,32 +62,10 @@ export function Hero() {
           <span className="text-primary">Space Into Paradise</span>
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-foreground/80 mb-8 text-balance">
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-foreground/80 mb-12 text-balance">
           Professional landscaping services that bring your vision to life. From lawn maintenance to complete landscape
           design.
         </motion.p>
-
-        {/* Trust Badges */}
-        <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {[
-            { label: "Years Experience", value: siteConfig.stats.yearsExperience },
-            { label: "Projects Completed", value: siteConfig.stats.projectsCompleted },
-            { label: "Satisfied Clients", value: siteConfig.stats.clientsSatisfied },
-            { label: "Team Members", value: siteConfig.stats.teamMembers },
-          ].map((stat, index) => (
-            <motion.div key={index} whileHover={{ scale: 1.05 }} className="glass rounded-lg p-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-                className="text-2xl md:text-3xl font-bold text-primary mb-2"
-              >
-                {stat.value}+
-              </motion.div>
-              <p className="text-sm text-foreground/60">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
