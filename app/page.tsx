@@ -10,6 +10,7 @@ import { Projects } from "@/components/projects"
 import { Testimonials } from "@/components/testimonials"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
+import SpecialOffer from "@/components/special-offer"
 
 export default function Home() {
   return (
