@@ -32,7 +32,7 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Video with Overlay */}
+      {/* Background Video with Advanced Overlay Effects */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -52,7 +52,14 @@ export function Hero() {
           />
           Your browser does not support HTML5 video.
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/80" />
+
+        {/* Vignette Effect */}
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-background/40" style={{
+          backgroundImage: "radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)"
+        }} />
       </div>
 
       {/* Content */}
