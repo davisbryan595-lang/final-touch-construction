@@ -40,11 +40,13 @@ export function Hero() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1920&h=1080&fit=crop"
         >
           <source
-            src="https://cdn.pixabay.com/vimeo/305151395/landscaping-12254.mp4?height=1080"
+            src="https://cdn.coverr.co/videos/coverr-beautiful-garden-landscape-1730/1080p.mp4"
             type="video/mp4"
           />
+          Your browser does not support HTML5 video.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
