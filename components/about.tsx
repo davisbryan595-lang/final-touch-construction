@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { AnimatedCounter } from "./animated-counter"
+import { siteConfig } from "@/lib/site.config"
 
 export function About() {
   const containerVariants = {
@@ -36,7 +38,7 @@ export function About() {
           {/* Image */}
           <motion.div variants={itemVariants} className="relative h-96 rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop"
+              src="https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop"
               alt="Landscaping team at work"
               fill
               className="object-cover"
@@ -88,6 +90,22 @@ export function About() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Stats Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, staggerChildren: 0.1 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <AnimatedCounter label="Years Experience" value={siteConfig.stats.yearsExperience} />
+          <AnimatedCounter label="Projects Completed" value={siteConfig.stats.projectsCompleted} />
+          <AnimatedCounter label="Satisfied Clients" value={siteConfig.stats.clientsSatisfied} />
+          <AnimatedCounter label="Team Members" value={siteConfig.stats.teamMembers} />
+        </div>
+      </motion.div>
     </section>
   )
 }

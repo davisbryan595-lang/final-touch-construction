@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { siteConfig } from "@/lib/site.config"
+import Image from "next/image"
 
 export function Services() {
   const containerVariants = {
@@ -54,19 +55,30 @@ export function Services() {
               key={service.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="glass rounded-lg p-6 group cursor-pointer glass-hover"
+              className="glass rounded-lg overflow-hidden group cursor-pointer glass-hover flex flex-col h-full"
             >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
-              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {service.name}
-              </h3>
-              <p className="text-foreground/70 text-sm leading-relaxed">{service.description}</p>
-              <motion.div
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-                className="h-0.5 bg-primary mt-4"
-              />
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={service.image || "https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=500&h=300&fit=crop"}
+                  alt={service.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  quality={85}
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{service.icon}</div>
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {service.name}
+                </h3>
+                <p className="text-foreground/70 text-sm leading-relaxed flex-1">{service.description}</p>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3 }}
+                  className="h-0.5 bg-primary mt-4"
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>

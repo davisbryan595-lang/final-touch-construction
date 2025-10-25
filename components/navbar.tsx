@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { siteConfig } from "@/lib/site.config"
+import Image from "next/image"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -35,22 +36,25 @@ export function Navbar() {
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled ? "glass" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 cursor-pointer group"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground group-hover:glow">
-              FT
-            </div>
-            <span className="hidden sm:inline font-bold text-primary">Final Touch</span>
+            <Image
+              src="https://cdn.builder.io/api/v1/image/assets%2Fbfad6aad64dd4c2cb2466ab07229646d%2F3a30a4ed25ab4402bcd2d6cbfb8dcdca?format=webp&width=400"
+              alt="Final Touch Logo"
+              width={144}
+              height={144}
+              className="object-contain"
+            />
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {["about", "services", "projects", "testimonials"].map((item) => (
+            {["about", "services", "projects", "pricing", "testimonials"].map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ color: "#00ff41" }}
@@ -108,7 +112,7 @@ export function Navbar() {
           className="md:hidden overflow-hidden"
         >
           <div className="flex flex-col gap-4 pb-4">
-            {["about", "services", "projects", "testimonials"].map((item) => (
+            {["about", "services", "projects", "pricing", "testimonials"].map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ x: 10 }}
