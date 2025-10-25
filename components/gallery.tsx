@@ -13,7 +13,7 @@ export default function Gallery() {
     {
       src: "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
       alt: "Beautiful lawn maintenance",
-      category: "Landscaping",
+      category: "Lawn Care",
     },
     {
       src: "https://images.pexels.com/photos/3935321/pexels-photo-3935321.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
@@ -21,14 +21,14 @@ export default function Gallery() {
       category: "Design",
     },
     {
-      src: "https://images.pexels.com/photos/416994/pexels-photo-416994.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      src: "https://images.pexels.com/photos/3707440/pexels-photo-3707440.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
       alt: "Hardscape patio installation",
       category: "Hardscaping",
     },
     {
       src: "https://images.pexels.com/photos/3571468/pexels-photo-3571468.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
       alt: "Tree and shrub care",
-      category: "Maintenance",
+      category: "Tree Service",
     },
     {
       src: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
