@@ -11,34 +11,34 @@ export default function Gallery() {
 
   const galleryImages = [
     {
-      src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=600&fit=crop",
-      alt: "Modern kitchen renovation",
-      category: "Interior",
+      src: "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Beautiful lawn maintenance",
+      category: "Landscaping",
     },
     {
-      src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=600&fit=crop",
-      alt: "Bathroom remodel",
-      category: "Interior",
+      src: "https://images.pexels.com/photos/3935321/pexels-photo-3935321.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Landscape design project",
+      category: "Design",
     },
     {
-      src: "https://images.unsplash.com/photo-1504917595217-340a4ee9c6e68?w=600&h=600&fit=crop",
-      alt: "Exterior construction",
-      category: "Exterior",
+      src: "https://images.pexels.com/photos/416994/pexels-photo-416994.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Hardscape patio installation",
+      category: "Hardscaping",
     },
     {
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=600&fit=crop",
-      alt: "Living room design",
-      category: "Interior",
+      src: "https://images.pexels.com/photos/3571468/pexels-photo-3571468.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Tree and shrub care",
+      category: "Maintenance",
     },
     {
-      src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&h=600&fit=crop",
-      alt: "Deck construction",
-      category: "Exterior",
+      src: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Seasonal garden cleanup",
+      category: "Cleanup",
     },
     {
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=600&fit=crop",
-      alt: "Bedroom renovation",
-      category: "Interior",
+      src: "https://images.pexels.com/photos/3639361/pexels-photo-3639361.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop",
+      alt: "Garden mulching installation",
+      category: "Mulching",
     },
   ]
 
