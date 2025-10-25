@@ -46,8 +46,8 @@ export function Navbar() {
             <Image
               src="https://cdn.builder.io/api/v1/image/assets%2Fbfad6aad64dd4c2cb2466ab07229646d%2F3a30a4ed25ab4402bcd2d6cbfb8dcdca?format=webp&width=400"
               alt="Final Touch Logo"
-              width={48}
-              height={48}
+              width={96}
+              height={96}
               className="object-contain"
             />
           </motion.div>
