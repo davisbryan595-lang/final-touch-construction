@@ -17,6 +17,7 @@ export default function Home() {
     <main className="relative bg-background text-foreground overflow-hidden">
       <Preloader />
       <AnimatedBackground />
+      <SpecialOffer />
 
       <div className="relative z-10">
         <Navbar />
