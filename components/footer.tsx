@@ -1,99 +1,159 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { siteConfig } from "@/lib/site.config"
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear()
+export function Footer() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
 
-  const footerSections = [
-    {
-      title: "Quick Links",
-      links: [
-        { label: "Home", href: "#home" },
-        { label: "About", href: "#about" },
-        { label: "Services", href: "#services" },
-        { label: "Gallery", href: "#gallery" },
-      ],
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
     },
-    {
-      title: "Services",
-      links: [
-        { label: "Exterior Construction", href: "#services" },
-        { label: "Interior Renovation", href: "#services" },
-        { label: "Full Detail Service", href: "#services" },
-        { label: "Consultations", href: "#contact" },
-      ],
-    },
-    {
-      title: "Contact",
-      links: [
-        { label: "Phone: (618) 308-1119", href: "tel:(618)308-1119" },
-        { label: "Email: info@finaltouch.com", href: "mailto:info@finaltouch.com" },
-        { label: "Marysville, CA", href: "#" },
-      ],
-    },
-    {
-      title: "Areas Served",
-      links: [
-        { label: "Marysville", href: "#" },
-        { label: "Surrounding Areas", href: "#" },
-        { label: "Service Radius: 50 miles", href: "#" },
-      ],
-    },
-  ]
-
-  const socialLinks = [
-    { icon: "📘", label: "Facebook", href: "#" },
-    { icon: "📷", label: "Instagram", href: "#" },
-    { icon: "🐦", label: "Twitter", href: "#" },
-    { icon: "💼", label: "LinkedIn", href: "#" },
-  ]
+  }
 
   return (
-    <footer className="bg-gradient-to-b from-[#1a1f3a] to-[#0a0e27] border-t border-[#00ff41]/20">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        {/* Main footer content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {footerSections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-white font-poppins font-bold mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <motion.a
-                      href={link.href}
-                      whileHover={{ x: 5, color: "#00ff41" }}
-                      className="text-gray-400 hover:text-[#00ff41] transition-colors font-urbanist text-sm"
-                    >
-                      {link.label}
-                    </motion.a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Social links */}
+    <footer className="relative bg-background border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-center gap-6 mb-8 pb-8 border-b border-[#00ff41]/20"
+          className="grid md:grid-cols-4 gap-8 mb-8"
         >
-          {socialLinks.map((social, index) => (
+          {/* Brand */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground">
+                FT
+              </div>
+              <span className="font-bold text-foreground">Final Touch</span>
+            </div>
+            <p className="text-foreground/70 text-sm">
+              Professional landscaping services for residential and commercial properties.
+            </p>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="font-bold text-foreground">Quick Links</h3>
+            <ul className="space-y-2">
+              {["about", "services", "projects", "testimonials"].map((link) => (
+                <li key={link}>
+                  <a href={`#${link}`} className="text-foreground/70 hover:text-primary transition-colors capitalize">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="font-bold text-foreground">Services</h3>
+            <ul className="space-y-2">
+              {siteConfig.services.slice(0, 4).map((service) => (
+                <li key={service.id}>
+                  <span className="text-foreground/70 text-sm">{service.name}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="font-bold text-foreground">Contact</h3>
+            <div className="space-y-2 text-sm">
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Phone:</span>
+                <br />
+                <a href={`tel:${siteConfig.business.phone}`} className="text-primary hover:underline">
+                  {siteConfig.business.phone}
+                </a>
+              </p>
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Email:</span>
+                <br />
+                <a href={`mailto:${siteConfig.business.email}`} className="text-primary hover:underline">
+                  {siteConfig.business.email}
+                </a>
+              </p>
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Address:</span>
+                <br />
+                {siteConfig.business.address}
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Hours */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="glass rounded-lg p-6 mb-8"
+        >
+          <h3 className="font-bold text-foreground mb-4">Operating Hours</h3>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Monday - Friday:</span>
+                <br />
+                {siteConfig.hours.monday}
+              </p>
+            </div>
+            <div>
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Saturday:</span>
+                <br />
+                {siteConfig.hours.saturday}
+              </p>
+            </div>
+            <div>
+              <p className="text-foreground/70">
+                <span className="font-semibold text-foreground">Sunday:</span>
+                <br />
+                {siteConfig.hours.sunday}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex justify-center gap-6 mb-8"
+        >
+          {[
+            { icon: "f", label: "Facebook", url: siteConfig.social.facebook },
+            { icon: "📷", label: "Instagram", url: siteConfig.social.instagram },
+            { icon: "💬", label: "WhatsApp", url: siteConfig.social.whatsapp },
+          ].map((social, index) => (
             <motion.a
               key={index}
-              href={social.href}
-              whileHover={{ scale: 1.2, color: "#00ff41" }}
-              className="text-2xl text-gray-400 hover:text-[#00ff41] transition-colors"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full glass flex items-center justify-center text-primary hover:bg-primary/10 transition-colors"
               title={social.label}
             >
               {social.icon}
@@ -101,18 +161,16 @@ export default function Footer() {
           ))}
         </motion.div>
 
-        {/* Copyright */}
+        {/* Bottom Bar */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="text-center"
+          className="border-t border-border pt-8 text-center text-sm text-foreground/60"
         >
-          <p className="text-gray-400 font-urbanist text-sm mb-2">
-            © {currentYear} Final Touch Construction LLC. All rights reserved.
-          </p>
-          <p className="text-gray-500 font-urbanist text-xs">Website by The Linkage Digital</p>
+          <p>© {new Date().getFullYear()} Final Touch Landscaping. All rights reserved.</p>
+          <p className="mt-2">Photos provided by client. Website designed with precision and care.</p>
         </motion.div>
       </div>
     </footer>

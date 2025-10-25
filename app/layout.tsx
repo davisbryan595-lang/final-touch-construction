@@ -1,32 +1,27 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins, Urbanist } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-})
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-urbanist",
-})
+const _geist = Geist({ subsets: ["latin"] })
+const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Final Touch Construction | Professional Building & Renovation Services",
+  title: "Final Touch Landscaping | Professional Lawn & Landscape Design",
   description:
-    "Professional construction and renovation services in Marysville, CA. Interior & exterior work, full renovations, and expert craftsmanship. Call (618) 308-1119 today!",
-  keywords: "construction Marysville, home renovation, building contractor, construction services CA",
+    "Premium landscaping services in Van Nuys, CA. Expert lawn maintenance, landscape design, hardscaping, and more. Get your free quote today!",
+  generator: "v0.app",
   openGraph: {
-    title: "Final Touch Construction | Professional Building & Renovation Services",
-    description: "Professional construction and renovation services in Marysville, CA",
+    title: "Final Touch Landscaping | Professional Lawn & Landscape Design",
+    description:
+      "Premium landscaping services in Van Nuys, CA. Expert lawn maintenance, landscape design, hardscaping, and more.",
     type: "website",
+    locale: "en_US",
   },
-    generator: 'v0.app'
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -35,34 +30,46 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <head>
+        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Final Touch Construction LLC",
-              image:
-                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/finaltouch-dbXFjiA8VbSt3aQgn2ejkhL76EEatS.jpg",
-              description: "Professional construction and renovation services",
+              name: "Final Touch Landscaping",
+              image: "https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1200&h=630&fit=crop",
+              description:
+                "Professional landscaping services including lawn maintenance, landscape design, hardscaping, and more.",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Marysville",
+                streetAddress: "1710 Akin Road",
+                addressLocality: "Van Nuys",
                 addressRegion: "CA",
+                postalCode: "91405",
+                addressCountry: "US",
               },
               telephone: "(618) 308-1119",
-              areaServed: ["Marysville", "Surrounding Areas"],
-              serviceType: ["Construction", "Renovation", "Interior Work", "Exterior Work"],
+              email: "Finaltouchlandscaping75@gmail.com",
+              priceRange: "$$",
+              areaServed: {
+                "@type": "City",
+                name: "Van Nuys, CA",
+              },
+              sameAs: [
+                "https://www.facebook.com/finaltouchlandscaping",
+                "https://www.instagram.com/finaltouchlandscaping",
+              ],
             }),
           }}
         />
       </head>
-      <body className={`${poppins.variable} ${urbanist.variable} font-urbanist antialiased`}>
-        {children}
-        <Analytics />
-      </body>
+      <body className={`font-sans antialiased`}>{children}</body>
     </html>
   )
 }
