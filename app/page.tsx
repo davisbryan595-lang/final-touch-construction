@@ -8,6 +8,7 @@ import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Projects } from "@/components/projects"
 import { Testimonials } from "@/components/testimonials"
+import Pricing from "@/components/pricing"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
 import SpecialOffer from "@/components/special-offer"
@@ -25,6 +26,7 @@ export default function Home() {
         <About />
         <Services />
         <Projects />
+        <Pricing />
         <Testimonials />
         <ContactForm />
         <Footer />
