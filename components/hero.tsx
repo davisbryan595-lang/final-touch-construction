@@ -40,10 +40,14 @@ export function Hero() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1920&h=1080&fit=crop"
+          poster="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1920"
         >
           <source
-            src="https://cdn.coverr.co/videos/coverr-beautiful-garden-landscape-1730/1080p.mp4"
+            src="https://videos.pexels.com/video-files/3571468/3571468-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://videos.pexels.com/video-files/3571468/3571468-hd_1280_720_30fps.mp4"
             type="video/mp4"
           />
           Your browser does not support HTML5 video.

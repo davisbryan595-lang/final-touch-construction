@@ -38,7 +38,7 @@ export function About() {
           {/* Image */}
           <motion.div variants={itemVariants} className="relative h-96 rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop"
+              src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop"
               alt="Landscaping team at work"
               fill
               className="object-cover"

@@ -43,7 +43,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Final Touch Landscaping",
-              image: "https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1200&h=630&fit=crop",
+              image: "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop",
               description:
                 "Professional landscaping services including lawn maintenance, landscape design, hardscaping, and more.",
               address: {
