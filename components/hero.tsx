@@ -1,102 +1,120 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { siteConfig } from "@/lib/site.config"
 import Image from "next/image"
 
-export default function Hero() {
+export function Hero() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    element?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  }
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
-      {/* Background video/image with overlay */}
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1504917595217-3404ee9c6e68?w=1920&h=1080&fit=crop"
-          alt="Construction site"
+          src="https://images.unsplash.com/photo-1585320806997-c33953f03a98?w=1920&h=1080&fit=crop"
+          alt="Professional landscaping"
           fill
           className="object-cover"
           priority
+          quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e27]/90 via-[#0a0e27]/70 to-[#0a0e27]/90" />
-      </div>
-
-      {/* Particle glow effect */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#00ff41] rounded-full"
-            animate={{
-              x: Math.random() * 1000 - 500,
-              y: Math.random() * 1000 - 500,
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 2,
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-poppins font-bold text-white mb-8 leading-tight"
-        >
-          Your Project, <span className="text-[#00ff41]">Built to Perfection</span>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-4xl mx-auto px-4 text-center"
+      >
+        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6 text-balance">
+          <span className="text-foreground">Transform Your Outdoor</span>
+          <br />
+          <span className="text-primary">Space Into Paradise</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 mb-12 font-urbanist"
-        >
-          Serving Marysville & Surrounding Areas
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-foreground/80 mb-8 text-balance">
+          Professional landscaping services that bring your vision to life. From lawn maintenance to complete landscape
+          design.
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
-        >
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-[#00ff41] text-black font-poppins font-bold rounded-lg hover:bg-[#00cc33] transition-colors text-lg"
-          >
-            Book Now
-          </motion.a>
-          <motion.a
-            href="#gallery"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 border-2 border-[#00ff41] text-[#00ff41] font-poppins font-bold rounded-lg hover:bg-[#00ff41]/10 transition-colors text-lg"
-          >
-            View Gallery
-          </motion.a>
+        {/* Trust Badges */}
+        <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {[
+            { label: "Years Experience", value: siteConfig.stats.yearsExperience },
+            { label: "Projects Completed", value: siteConfig.stats.projectsCompleted },
+            { label: "Satisfied Clients", value: siteConfig.stats.clientsSatisfied },
+            { label: "Team Members", value: siteConfig.stats.teamMembers },
+          ].map((stat, index) => (
+            <motion.div key={index} whileHover={{ scale: 1.05 }} className="glass rounded-lg p-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+                className="text-2xl md:text-3xl font-bold text-primary mb-2"
+              >
+                {stat.value}+
+              </motion.div>
+              <p className="text-sm text-foreground/60">{stat.label}</p>
+            </motion.div>
+          ))}
         </motion.div>
-      </div>
 
-      {/* Scroll indicator */}
+        {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection("contact")}
+            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold text-lg hover:shadow-lg hover:shadow-primary/50 transition-all"
+          >
+            Get a Quote
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection("projects")}
+            className="px-8 py-4 border-2 border-primary text-primary rounded-lg font-semibold text-lg hover:bg-primary/10 transition-all"
+          >
+            See Gallery
+          </motion.button>
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
-        <svg className="w-6 h-6 text-[#00ff41]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
+          <motion.div className="w-1 h-2 bg-primary rounded-full" />
+        </div>
       </motion.div>
     </section>
   )
